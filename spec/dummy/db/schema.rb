@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112205416) do
+ActiveRecord::Schema.define(version: 20161112212726) do
 
   create_table "geo_countries", force: :cascade do |t|
     t.string "code", limit: 2
     t.index ["code"], name: "index_geo_countries_on_code", unique: true
+  end
+
+  create_table "geo_locations", force: :cascade do |t|
+    t.string  "address"
+    t.string  "zip_code",       limit: 20
+    t.integer "place_id"
+    t.integer "country_id"
+    t.float   "latitude"
+    t.float   "longitude"
+    t.string  "locatable_type"
+    t.integer "locatable_id"
+    t.index ["locatable_type", "locatable_id"], name: "index_geo_locations_on_locatable_type_and_locatable_id"
   end
 
   create_table "geo_places", force: :cascade do |t|
