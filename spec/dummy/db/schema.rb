@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112184606) do
+ActiveRecord::Schema.define(version: 20161112205416) do
 
   create_table "geo_countries", force: :cascade do |t|
     t.string "code", limit: 2
     t.index ["code"], name: "index_geo_countries_on_code", unique: true
+  end
+
+  create_table "geo_places", force: :cascade do |t|
+    t.string "uid"
+    t.index ["uid"], name: "index_geo_places_on_uid", unique: true
   end
 
 end
