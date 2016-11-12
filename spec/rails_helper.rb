@@ -6,8 +6,9 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 
 require 'simplecov'
 SimpleCov.start 'rails' do
-  add_filter 'lib/multilingual/version.rb'
-  add_filter 'lib/multilingual/engine.rb'
+  add_filter 'lib/geo.rb'
+  add_filter 'lib/geo/version.rb'
+  add_filter 'lib/geo/engine.rb'
 end
 
 require 'spec_helper'
