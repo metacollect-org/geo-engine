@@ -18,12 +18,17 @@ module Geo
       end
 
       it 'one-letter long' do
-          country.code = 'a'
+          country.code = 'A'
           expect(country).not_to be_valid
       end
 
       it 'three-letters long' do
-          country.code = 'abc'
+          country.code = 'ABC'
+          expect(country).not_to be_valid
+      end
+
+      it 'lowercase' do
+          country.code.downcase!
           expect(country).not_to be_valid
       end
     end
@@ -40,7 +45,7 @@ module Geo
 
       it 'is fulfilled by another model with a different two-letter code' do
         expect(country).to be_valid
-        second.code = 'fu'
+        second.code = 'FU'
         expect(second).to be_valid
       end
     end
