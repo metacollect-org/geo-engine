@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161112212726) do
+ActiveRecord::Schema.define(version: 20161115184661) do
 
   create_table "geo_countries", force: :cascade do |t|
     t.string "code", limit: 2
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(version: 20161112212726) do
   create_table "geo_places", force: :cascade do |t|
     t.string "uid"
     t.index ["uid"], name: "index_geo_places_on_uid", unique: true
+  end
+
+  create_table "multilingual_languages", force: :cascade do |t|
+    t.string "code", limit: 2
+    t.index ["code"], name: "index_multilingual_languages_on_code", unique: true
+  end
+
+  create_table "multilingual_translations", force: :cascade do |t|
+    t.string  "content"
+    t.integer "language_id"
+    t.string  "translatable_type"
+    t.integer "translatable_id"
+    t.index ["translatable_type", "translatable_id"], name: "index_multilingual_translations_translatable"
   end
 
 end

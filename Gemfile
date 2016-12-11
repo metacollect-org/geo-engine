@@ -13,3 +13,4 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 gem 'multilingual', path: '../multilingual'
+#gem 'schemapper', path: '~/Work/Codebase/schemapper'
